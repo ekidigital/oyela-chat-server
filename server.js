@@ -26,6 +26,10 @@ app.use(cors());
 app.use(express.json());
 app.use('/api/chat', chatRoutes);
 
+app.get("/", (req, res) => {
+  return res.status(200).json({ status: "success", message: "Api working" });
+})
+
 // Socket.io connection
 io.on('connection', (socket) => {
   console.log('New client connected:', socket.id);
